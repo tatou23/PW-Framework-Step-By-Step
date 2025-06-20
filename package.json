@@ -13,7 +13,8 @@
     "sanity": "npx playwright test --grep @Sanity --project=chromium",
     "api": "npx playwright test --grep @Api --project=chromium",
     "regression": "npx playwright test --grep @Regression --project=chromium",
-    "fullTest": "npx playwright test"
+    "fullTest": "npx playwright test",
+    "prepare": "husky"
   },
   "keywords": [],
   "author": "Ivan Davidov",
@@ -22,10 +23,26 @@
     "@faker-js/faker": "^9.8.0",
     "@playwright/test": "^1.52.0",
     "@types/dotenv": "^6.1.1",
-    "@types/node": "^22.15.21"
+    "@types/node": "^22.15.21",
+    "@typescript-eslint/eslint-plugin": "^8.34.1",
+    "@typescript-eslint/parser": "^8.34.1",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-define-config": "^2.1.0",
+    "eslint-plugin-playwright": "^2.2.0",
+    "eslint-plugin-prettier": "^5.5.0",
+    "husky": "^9.1.7",
+    "jiti": "^2.4.2",
+    "lint-staged": "^16.1.2"
   },
   "dependencies": {
     "dotenv": "^16.5.0",
     "zod": "^3.25.23"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx}": [
+      "npx eslint --fix",
+      "npx prettier --write"
+    ]
   }
 }
