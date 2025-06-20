@@ -9,38 +9,38 @@ import { Page, Locator, expect } from '@playwright/test';
 export class ArticlePage {
     constructor(private page: Page) {}
 
-    get articleTitleInput() {
+    get articleTitleInput(): Locator {
         return this.page.getByRole('textbox', {
             name: 'Article Title',
         });
     }
-    get articleDescriptionInput() {
+    get articleDescriptionInput(): Locator {
         return this.page.getByRole('textbox', {
             name: "What's this article about?",
         });
     }
-    get articleBodyInput() {
+    get articleBodyInput(): Locator {
         return this.page.getByRole('textbox', {
             name: 'Write your article (in',
         });
     }
-    get articleTagInput() {
+    get articleTagInput(): Locator {
         return this.page.getByRole('textbox', {
             name: 'Enter tags',
         });
     }
-    get publishArticleButton() {
+    get publishArticleButton(): Locator {
         return this.page.getByRole('button', {
             name: 'Publish Article',
         });
     }
-    get publishErrorMessage() {
+    get publishErrorMessage(): Locator {
         return this.page.getByText("title can't be blank");
     }
-    get editArticleButton() {
+    get editArticleButton(): Locator {
         return this.page.getByRole('link', { name: ' Edit Article' }).first();
     }
-    get deleteArticleButton() {
+    get deleteArticleButton(): Locator {
         return this.page
             .getByRole('button', { name: ' Delete Article' })
             .first();

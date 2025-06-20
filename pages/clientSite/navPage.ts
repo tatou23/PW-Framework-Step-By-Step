@@ -9,58 +9,58 @@ import { Page, Locator, expect } from '@playwright/test';
 export class NavPage {
     constructor(private page: Page) {}
 
-    get navBar() {
+    get navBar(): Locator {
         return this.page.getByRole('navigation');
     }
-    get conduitIcon() {
+    get conduitIcon(): Locator {
         return this.navBar.getByRole('link', { name: 'conduit' });
     }
-    get homePageLink() {
+    get homePageLink(): Locator {
         return this.page.getByRole('link', {
             name: 'Home',
             exact: true,
         });
     }
-    get newArticleButton() {
+    get newArticleButton(): Locator {
         return this.page.getByRole('link', {
             name: 'New Article',
         });
     }
-    get settingsButton() {
+    get settingsButton(): Locator {
         return this.page.getByRole('link', { name: 'Settings' });
     }
-    get settingsPageTitle() {
+    get settingsPageTitle(): Locator {
         return this.page.getByRole('heading', {
             name: 'Your Settings',
         });
     }
-    get logoutButton() {
+    get logoutButton(): Locator {
         return this.page.getByRole('button', {
             name: 'Or click here to logout.',
         });
     }
-    get signInNavigationLink() {
+    get signInNavigationLink(): Locator {
         return this.page.getByRole('link', { name: 'Sign in' });
     }
-    get signInPageTitle() {
+    get signInPageTitle(): Locator {
         return this.page.getByRole('heading', { name: 'Sign in' });
     }
-    get emailInput() {
+    get emailInput(): Locator {
         return this.page.getByRole('textbox', { name: 'Email' });
     }
-    get passwordInput() {
+    get passwordInput(): Locator {
         return this.page.getByRole('textbox', { name: 'Password' });
     }
-    get signInButton() {
+    get signInButton(): Locator {
         return this.page.getByRole('button', { name: 'Sign in' });
     }
-    get signUpNavigationLink() {
+    get signUpNavigationLink(): Locator {
         return this.page.getByRole('link', { name: 'Sign up' });
     }
-    get signUpPageTitle() {
+    get signUpPageTitle(): Locator {
         return this.page.getByRole('heading', { name: 'Sign up' });
     }
-    get homePageHeading() {
+    get homePageHeading(): Locator {
         return this.page.getByRole('heading', { name: 'conduit' });
     }
 

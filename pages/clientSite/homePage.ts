@@ -9,21 +9,21 @@ import { Page, Locator, expect } from '@playwright/test';
 export class HomePage {
     constructor(private page: Page) {}
 
-    get homeBanner() {
+    get homeBanner(): Locator {
         return this.page.getByRole('heading', { name: 'conduit' });
     }
-    get yourFeedBtn() {
+    get yourFeedBtn(): Locator {
         return this.page.getByText('Your Feed');
     }
-    get globalFeedBtn() {
+    get globalFeedBtn(): Locator {
         return this.page.getByText('Global Feed');
     }
-    get bondarAcademyLink() {
+    get bondarAcademyLink(): Locator {
         return this.page.getByRole('link', {
             name: 'www.bondaracademy.com',
         });
     }
-    get noArticlesMessage() {
+    get noArticlesMessage(): Locator {
         return this.page.getByText('No articles are here... yet.');
     }
 
@@ -32,9 +32,7 @@ export class HomePage {
      * @returns {Promise<void>} Resolves when the navigation is complete.
      */
     async navigateToHomePageGuest(): Promise<void> {
-        await this.page.goto(process.env.URL as string, {
-            waitUntil: 'networkidle',
-        });
+        await this.page.goto(process.env.URL as string);
 
         await expect(this.homeBanner).toBeVisible();
     }
@@ -44,11 +42,9 @@ export class HomePage {
      * @returns {Promise<void>} Resolves when the navigation is complete.
      */
     async navigateToHomePageUser(): Promise<void> {
-        await this.page.goto(process.env.URL as string, {
-            waitUntil: 'networkidle',
-        });
+        await this.page.goto(process.env.URL as string);
 
         await expect(this.yourFeedBtn).toBeVisible();
-        expect(this.globalFeedBtn).toBeVisible();
+        await expect(this.globalFeedBtn).toBeVisible();
     }
 }
