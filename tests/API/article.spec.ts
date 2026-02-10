@@ -21,6 +21,7 @@ test.describe('Verify CRUD for Article', () => {
                 expect(status).toBe(201);
                 expect(ArticleResponseSchema.parse(body)).toBeTruthy();
                 articleId = body.article.slug;
+                //console.log(status, body);
             });
 
             await test.step('Verify Read an Article', async () => {

@@ -7,3 +7,6 @@ node_modules/
 /playwright/.cache/
 .env.dev
 .auth/userSession.json
+
+# Playwright
+/playwright/.auth/

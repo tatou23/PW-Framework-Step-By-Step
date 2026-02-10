@@ -1,4 +1,5 @@
 import type { APIRequestContext, APIResponse } from '@playwright/test';
+import { console } from 'inspector';
 
 /**
  * Simplified helper for making API requests and returning the status and JSON body.
@@ -49,7 +50,6 @@ export async function apiRequest({
     }
 
     const fullUrl = baseUrl ? `${baseUrl}${url}` : url;
-
     switch (method.toUpperCase()) {
         case 'POST':
             response = await request.post(fullUrl, options);
